@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI for Virtual Assistants — Practical AI Skills for Real Client Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/tokens.css">
+<style>
+  header.hero {
+    border-bottom: 1px solid var(--rule);
+    padding: 56px 0 40px;
+  }
+  .eyebrow {
+    font-size: 0.85rem;
+    color: var(--human);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .hero p.lede { font-size: 1.1rem; color: var(--ink-soft); max-width: 60ch; }
+  .promise {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin: 24px 0 0;
+    padding: 18px 20px;
+    border-left: 3px solid var(--human);
+    background: var(--human-tint);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+
+  .notice {
+    margin: 32px 0;
+    padding: 18px 20px;
+    background: var(--ai-tint);
+    border: 1px solid var(--ai-border);
+    border-radius: var(--radius);
+  }
+  .notice h3 { margin-top: 0; font-size: 1rem; color: var(--ai); }
+  .notice p { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 0.6em; }
+
+  main.wrap { padding: 40px 20px 80px; }
+
+  .course-progress { margin-bottom: 40px; }
+  .course-progress .stat-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+
+  .module-list { display: flex; flex-direction: column; gap: 14px; }
+  .module-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .module-card .card:hover { border-color: var(--human); }
+  .module-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .module-num {
+    font-family: var(--font-display);
+    color: var(--human);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .module-title { font-family: var(--font-display); font-size: 1.15rem; margin: 4px 0 10px; }
+  .module-meta { font-size: 0.85rem; color: var(--ink-soft); }
+
+  .reset-row {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .reset-row button {
+    background: none;
+    border: none;
+    color: var(--ink-soft);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 0;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Free · Self-Paced · No Login Required</div>
+    <h1>AI for Virtual Assistants</h1>
+    <p class="lede">Practical AI skills for real client work — learn to use AI as part of a real VA workflow, with your fictional client BrightPath Learning Co., across 7 modules and 38 lessons.</p>
+    <p class="promise">AI can help you do the work. You are still responsible for the work.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="notice">
+    <h3>Before You Start</h3>
+    <p>This course has no accounts and no login. Your progress is saved only in <strong>this browser, on this device</strong>, using local storage.</p>
+    <p>If you clear your browsing data, switch browsers, or switch devices, your progress will not carry over. Bookmark this page, and consider saving your written work (Task Maps, drafts, Audit Notes) somewhere of your own — like a Google Doc or Drive folder — as you go.</p>
+  </div>
+
+  <section class="course-progress">
+    <div class="stat-row">
+      <span id="progressLabel">0 of 38 lessons complete</span>
+      <span id="progressPercent">0%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  </section>
+
+  <section class="module-list" id="moduleList"></section>
+
+  <div class="reset-row">
+    <button id="resetBtn" type="button">Reset my local progress</button>
+  </div>
+
+</main>
+
+<script src="/shared/course-data.js"></script>
+<script src="/shared/progress.js"></script>
+<script>
+  function render() {
+    const cp = AIVAProgress.courseProgress();
+    const pct = Math.round((cp.done / cp.total) * 100);
+    document.getElementById('progressLabel').textContent = `${cp.done} of ${cp.total} lessons complete`;
+    document.getElementById('progressPercent').textContent = `${pct}%`;
+    document.getElementById('progressFill').style.width = pct + '%';
+
+    const list = document.getElementById('moduleList');
+    list.innerHTML = '';
+    COURSE_DATA.modules.forEach(m => {
+      const mp = AIVAProgress.moduleProgress(m.id);
+      const firstLesson = m.lessons[0];
+      const a = document.createElement('a');
+      a.className = 'module-card';
+      a.href = COURSE_DATA.lessonPath({ ...firstLesson, moduleSlug: m.slug });
+      a.innerHTML = `
+        <div class="card">
+          <div class="module-head">
+            <span class="module-num">Module ${m.id}</span>
+            <span class="module-meta">${mp.done}/${mp.total} lessons</span>
+          </div>
+          <div class="module-title">${m.title}</div>
+          <div class="progress-track"><div class="progress-fill" style="width:${Math.round((mp.done/mp.total)*100)}%"></div></div>
+        </div>`;
+      list.appendChild(a);
+    });
+  }
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    if (confirm('This clears all locally saved progress in this browser. This cannot be undone. Continue?')) {
+      AIVAProgress.reset();
+      render();
+    }
+  });
+
+  render();
+</script>
+
+</body>
+</html>
