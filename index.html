@@ -3,176 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI for Virtual Assistants — Free Course — PVA Academy</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/shared/tokens.css">
-<style>
-  header.hero { border-bottom: 1px solid var(--rule); padding: 40px 0 40px; }
-  .hero p.lede { font-size: 1.1rem; color: var(--ink-soft); max-width: 60ch; margin-top: 12px; }
-  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0 10px; }
-  .no-login-note { font-size: 0.88rem; color: var(--verified); font-weight: 600; }
-
-  main.wrap { padding: 40px 20px 20px; }
-
-  .notice { margin: 32px 0; padding: 18px 20px; background: var(--ai-tint); border: 1px solid var(--ai-border); border-radius: var(--radius); }
-  .notice h3 { margin-top: 0; font-size: 1rem; color: var(--ai); }
-  .notice p { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 0.6em; }
-  .notice ul { font-size: 0.92rem; color: var(--ink-soft); margin: 0.4em 0; }
-
-  .course-progress { margin: 40px 0; }
-  .course-progress .stat-row { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 8px; }
-
-  ol.module-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; counter-reset: modnum; }
-  ol.module-list li { counter-increment: modnum; }
-  ol.module-list a { display: flex; gap: 14px; align-items: flex-start; text-decoration: none; color: inherit; padding: 16px 4px; border-bottom: 1px solid var(--rule); }
-  ol.module-list a:hover .m-title { color: var(--human); }
-  .m-num { font-family: var(--font-display); font-weight: 700; color: var(--human); font-size: 1.1rem; min-width: 26px; }
-  .m-num::before { content: counter(modnum); }
-  .m-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 3px; }
-  .m-desc { font-size: 0.88rem; color: var(--ink-soft); }
-  .m-status { font-size: 0.78rem; color: var(--ink-soft); white-space: nowrap; margin-left: auto; padding-left: 12px; }
-
-  .reset-row { margin: 40px 0; font-size: 0.85rem; color: var(--ink-soft); }
-  .reset-row button { background: none; border: none; color: var(--ink-soft); text-decoration: underline; cursor: pointer; font-size: 0.85rem; padding: 0; }
-</style>
+<title>AI for Virtual Assistants — Free Course</title>
+<meta name="description" content="A free, self-paced course teaching Filipino VAs how to use AI responsibly as part of real client work.">
+<link rel="stylesheet" href="shared/course.css">
 </head>
-<body>
+<body data-page="hub">
+<a class="skip-link" href="#main">Skip to main content</a>
 
-<div class="pva-topbar">
-  <div class="wrap-wide">
-    <a href="https://probinsiyanongva.org/" target="_blank" rel="noopener">PVA Academy</a>
-    <span class="course-name">AI for Virtual Assistants</span>
-  </div>
-</div>
-
-<header class="hero">
-  <div class="wrap">
-    <div class="eyebrow-tracked">Free Course · PVA Academy</div>
+<header class="hub-hero">
+  <div class="hub-hero-inner">
+    <div class="kicker">FREE COURSE · PVA ACADEMY</div>
     <h1>AI for Virtual Assistants</h1>
     <p class="lede">Practical AI skills for real client work. Learn where AI genuinely helps, where it needs caution, and where the judgment stays with you — through a running assignment with your fictional client, BrightPath Learning Co.</p>
-    <div class="hero-ctas">
-      <a class="btn" href="/module-1/">Start Module 1 →</a>
-      <a class="btn btn-secondary" href="#modules">See the course map</a>
+    <div class="btn-row">
+      <a class="btn btn-brass" href="module-1/">Start Module 1 →</a>
+      <a class="btn btn-secondary" style="border-color:#fff;color:#fff" href="#modules">See the course map</a>
     </div>
-    <div class="no-login-note">✓ No login required</div>
   </div>
 </header>
 
-<main class="wrap">
+<main id="main" class="hub-wrap">
 
-  <div class="notice">
-    <h3>Before You Start</h3>
+  <section class="before-start" aria-labelledby="before-start-h">
+    <span class="no-login-badge">✓ No login required</span>
+    <h2 id="before-start-h">Before You Start</h2>
     <p><strong>No login is required.</strong> You can start learning right away.</p>
     <p>Your course progress and saved activities are automatically saved on the device and browser you are using right now — nothing is sent to an account or a server.</p>
     <p>For the best experience, keep using the <strong>same device and browser</strong> while you take this course.</p>
+    <p><strong>Important:</strong></p>
     <ul>
       <li>Your saved progress may not be available if you switch to another device or browser.</li>
       <li>Clearing your browser's site data may remove your saved progress.</li>
       <li>Private or incognito browsing may prevent your saved progress from being available later.</li>
     </ul>
-  </div>
-
-  <h2>By the end of this course, you'll be able to</h2>
-  <ul class="check-list">
-    <li>Recognize where AI can genuinely help with VA work — and where it should be used with caution, or not at all</li>
-    <li>Give AI useful context while protecting client information</li>
-    <li>Define what a useful result looks like and work with AI in multiple rounds</li>
-    <li>Audit AI-generated work and catch unsupported claims before you rely on them</li>
-    <li>Write professional client communication, adapted for async and international work</li>
-    <li>Use AI for research without treating it as the source of truth</li>
-    <li>Assist with spreadsheets, SOPs, and reports while verifying the result yourself</li>
-    <li>Compare AI tools and choose the right one for the task, without becoming loyal to one</li>
-    <li>Complete a realistic capstone and document your AI use honestly</li>
-  </ul>
-  <p style="color:var(--ink-soft); font-size:0.95rem;">This course is not an AI-tools course. It's practical VA training that happens to use AI as a productivity layer — the central skill is judgment, not prompting.</p>
-
-  <h2>One principle, used everywhere in this course</h2>
-  <p style="color:var(--ink-soft);">Every module comes back to the same seven-stage workflow. Learning to move through it — and know when to stop and check — is most of what this course is teaching.</p>
-  <div class="framework-grid">
-    <div class="framework-card"><div class="fw-label">Understand</div><div class="fw-desc">What is the client actually asking for?</div></div>
-    <div class="framework-card"><div class="fw-label">Prepare</div><div class="fw-desc">What does AI actually need to help?</div></div>
-    <div class="framework-card"><div class="fw-label">Define the Result</div><div class="fw-desc">What should a useful output look like?</div></div>
-    <div class="framework-card"><div class="fw-label">Use AI</div><div class="fw-desc">Get a draft — not a finished deliverable.</div></div>
-    <div class="framework-card"><div class="fw-label">Audit</div><div class="fw-desc">Check it against the source. Trust nothing by default.</div></div>
-    <div class="framework-card"><div class="fw-label">Correct</div><div class="fw-desc">Fix what's wrong. This is still your job.</div></div>
-    <div class="framework-card"><div class="fw-label">Deliver</div><div class="fw-desc">You own what you send the client.</div></div>
-  </div>
-  <p style="text-align:center; font-family:var(--font-display); font-size:1.05rem; color:var(--ink-soft);">AI can help you do the work. You are still responsible for the work.</p>
-
-  <h2>How work is tagged throughout the course</h2>
-  <div class="tag-legend">
-    <div class="tag-legend-item">
-      <span class="tag-label tag-learning">Learning Artifact</span>
-      <p>Work you complete while learning — builds the skill, not submitted as proof of it.</p>
-    </div>
-    <div class="tag-legend-item">
-      <span class="tag-label tag-proof">Proof-of-Skill Artifact</span>
-      <p>Stronger module work that demonstrates a specific competency — worth keeping for your portfolio.</p>
-    </div>
-    <div class="tag-legend-item">
-      <span class="tag-label tag-capstone">Capstone Evidence</span>
-      <p>Work that forms part of the Module 7 capstone and your final AI-Use Explanation.</p>
-    </div>
-  </div>
-
-  <section class="course-progress" id="modules">
-    <h2 style="margin-top:0;">The Course</h2>
-    <div class="stat-row">
-      <span id="progressLabel">0 of 38 lessons complete</span>
-      <span id="progressPercent">0%</span>
-    </div>
-    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <p style="margin-bottom:0">You can close this course and come back later using the same device and browser, and your saved progress should still be there.</p>
   </section>
 
-  <ol class="module-list" id="moduleList"></ol>
+  <section aria-labelledby="promise-h">
+    <h2 id="promise-h">By the end of this course, you'll be able to</h2>
+    <div class="promise-grid">
+      <div class="promise-item"><span class="mk">✓</span><p>Recognize where AI can genuinely help with VA work, where it needs caution, and where it shouldn't be used at all</p></div>
+      <div class="promise-item"><span class="mk">✓</span><p>Give AI useful context while protecting client information</p></div>
+      <div class="promise-item"><span class="mk">✓</span><p>Define what a useful result looks like and work with AI across multiple rounds</p></div>
+      <div class="promise-item"><span class="mk">✓</span><p>Audit AI-generated work and catch unsupported claims before relying on them</p></div>
+      <div class="promise-item"><span class="mk">✓</span><p>Write professional client communication, adapted for async and international work</p></div>
+      <div class="promise-item"><span class="mk">✓</span><p>Use AI for research without treating it as the source of truth</p></div>
+      <div class="promise-item"><span class="mk">✓</span><p>Assist with spreadsheets, SOPs, and reports while verifying the result yourself</p></div>
+      <div class="promise-item"><span class="mk">✓</span><p>Compare AI tools and choose the right one for the task, without becoming loyal to one</p></div>
+      <div class="promise-item"><span class="mk">✓</span><p>Complete a realistic capstone and document your AI use honestly</p></div>
+    </div>
+    <p style="font-size:.92rem;color:var(--ink-faint)">This course is not primarily an AI-tools course. It is practical VA training that happens to use AI as a productivity layer — the central skill is judgment, not prompting.</p>
+  </section>
 
-  <div class="reset-row">
-    <button id="resetBtn" type="button">Reset my local progress</button>
-  </div>
+  <hr class="divider">
+
+  <section aria-labelledby="wf-h">
+    <h2 id="wf-h">One workflow, used everywhere in this course</h2>
+    <p>Every module comes back to the same seven-stage workflow. Learning to move through it — and knowing when to stop and check — is most of what this course is teaching.</p>
+    <div class="workflow-key">
+      <div class="wf-card"><h4>Understand</h4><p>What is the client actually asking for?</p></div>
+      <div class="wf-card"><h4>Prepare</h4><p>What does AI actually need to help?</p></div>
+      <div class="wf-card"><h4>Define the Result</h4><p>What should a useful output look like?</p></div>
+      <div class="wf-card"><h4>Use AI</h4><p>Get a draft — not a finished deliverable.</p></div>
+      <div class="wf-card"><h4>Audit</h4><p>Check it against the source. Trust nothing by default.</p></div>
+      <div class="wf-card"><h4>Correct</h4><p>Fix what's wrong. This is still your job.</p></div>
+      <div class="wf-card"><h4>Deliver</h4><p>You own what you send the client.</p></div>
+    </div>
+    <p style="text-align:center; font-family:var(--font-head); font-size:1.05rem; color:var(--ink-soft); margin-top:1.4rem;">AI can help you do the work. You are still responsible for the work.</p>
+  </section>
+
+  <hr class="divider">
+
+  <section aria-labelledby="tags-h">
+    <h2 id="tags-h">How work is tagged throughout the course</h2>
+    <div class="tag-legend">
+      <div class="tag-legend-item"><span class="tag tag-learning">LEARNING ARTIFACT</span><p>Work you complete while learning. Builds the skill — not submitted as proof of it.</p></div>
+      <div class="tag-legend-item"><span class="tag tag-proof">PROOF-OF-SKILL ARTIFACT</span><p>Stronger module work that demonstrates a specific competency — worth keeping for your portfolio.</p></div>
+      <div class="tag-legend-item"><span class="tag tag-capstone">CAPSTONE EVIDENCE</span><p>Work that forms part of the Module 7 capstone and your final AI-Use Explanation.</p></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="modules" aria-labelledby="modules-h">
+    <h2 id="modules-h">The course</h2>
+    <p>Seven modules, in order, culminating in an integrated Module 7 capstone with your fictional client, BrightPath Learning Co., followed by a portfolio and AI-Use Explanation lesson.</p>
+
+    <ol class="module-list" id="module-list">
+      <li class="module-row" data-module="module-1">
+        <a class="module-link" href="module-1/">
+          <div class="module-status" data-status="module-1">Not started</div>
+          <h3>AI-Assisted VA Mindset &amp; Responsible Use</h3>
+          <p class="module-focus">Where AI helps, where it needs caution, protecting client information, and why confident AI output can still be wrong.</p>
+        </a>
+      </li>
+      <li class="module-row" data-module="module-2">
+        <a class="module-link" href="module-2/">
+          <div class="module-status" data-status="module-2">Not started</div>
+          <h3>Getting Useful Results From AI</h3>
+          <p class="module-focus">Starting with the actual task, giving AI the right context, defining a useful result, and working in rounds.</p>
+        </a>
+      </li>
+      <li class="module-row" data-module="module-3">
+        <a class="module-link" href="module-3/">
+          <div class="module-status" data-status="module-3">Not started</div>
+          <h3>AI for Communication</h3>
+          <p class="module-focus">Client emails, customer service, tone, international clients, async updates, scheduling, and removing AI slop.</p>
+        </a>
+      </li>
+      <li class="module-row" data-module="module-4">
+        <a class="module-link" href="module-4/">
+          <div class="module-status" data-status="module-4">Not started</div>
+          <h3>AI for Research, Summarizing &amp; Information</h3>
+          <p class="module-focus">Using AI as a research assistant, summarizing, extracting information, verifying before you use it, and building a research brief.</p>
+        </a>
+      </li>
+      <li class="module-row" data-module="module-5">
+        <a class="module-link" href="module-5/">
+          <div class="module-status" data-status="module-5">Not started</div>
+          <h3>AI for Admin, Documentation &amp; Operations</h3>
+          <p class="module-focus">SOPs, checklists, reports, spreadsheet assistance, and process improvement.</p>
+        </a>
+      </li>
+      <li class="module-row" data-module="module-6">
+        <a class="module-link" href="module-6/">
+          <div class="module-status" data-status="module-6">Not started</div>
+          <h3>Choosing the Right AI Tool</h3>
+          <p class="module-focus">ChatGPT, Gemini, and Claude — comparing strengths, staying tool-neutral, and choosing a tool for the job.</p>
+        </a>
+      </li>
+      <li class="module-row" data-module="module-7">
+        <a class="module-link" href="module-7/">
+          <div class="module-status" data-status="module-7">Not started</div>
+          <h3>Proving Your AI-Assisted VA Skills</h3>
+          <p class="module-focus">The BrightPath capstone — build the AI-assisted client operations package, audit and finalize it, and document your AI use honestly.</p>
+        </a>
+      </li>
+    </ol>
+  </section>
 
 </main>
 
-<footer class="site-footer">AI for Virtual Assistants · PVA Academy · Your progress is saved in this browser only.</footer>
+<footer class="hub-footer">
+  AI for Virtual Assistants · PVA Academy · Your progress is saved in this browser only.
+</footer>
 
-<script src="/shared/course-data.js"></script>
-<script src="/shared/progress.js"></script>
+<script src="shared/course.js"></script>
 <script>
-  function render() {
-    const cp = AIVAProgress.courseProgress();
-    const pct = Math.round((cp.done / cp.total) * 100);
-    document.getElementById('progressLabel').textContent = `${cp.done} of ${cp.total} lessons complete`;
-    document.getElementById('progressPercent').textContent = `${pct}%`;
-    document.getElementById('progressFill').style.width = pct + '%';
-
-    const list = document.getElementById('moduleList');
-    list.innerHTML = '';
-    COURSE_DATA.modules.forEach(m => {
-      const mp = AIVAProgress.moduleProgress(m.id);
-      const li = document.createElement('li');
-      const statusText = mp.done === 0 ? 'Not started' : (mp.done === mp.total ? 'Complete' : `${mp.done}/${mp.total} lessons`);
-      li.innerHTML = `
-        <a href="${COURSE_DATA.modulePath(m)}">
-          <span class="m-num"></span>
-          <span>
-            <div class="m-title">${m.title}</div>
-            <div class="m-desc">${m.lessons.length} lessons</div>
-          </span>
-          <span class="m-status">${statusText}</span>
-        </a>`;
-      list.appendChild(li);
-    });
-  }
-
-  document.getElementById('resetBtn').addEventListener('click', () => {
-    if (confirm('This clears all locally saved progress in this browser. This cannot be undone. Continue?')) {
-      AIVAProgress.reset();
-      render();
+  (function () {
+    function readStore() {
+      try { return JSON.parse(localStorage.getItem("aiva:progress:v1")) || {}; } catch (e) { return {}; }
     }
-  });
-
-  render();
+    var store = readStore();
+    document.querySelectorAll("[data-status]").forEach(function (el) {
+      var mod = el.getAttribute("data-status");
+      var manifestKey = "manifest:" + mod;
+      var manifest = store[manifestKey] && store[manifestKey].value;
+      if (!manifest || !manifest.length) return;
+      var done = manifest.filter(function (id) { return store[id] && store[id].complete; }).length;
+      if (done === 0) return;
+      if (done >= manifest.length) {
+        el.textContent = "Complete";
+        el.classList.add("done");
+      } else {
+        el.textContent = done + " / " + manifest.length + " done";
+      }
+    });
+  })();
 </script>
-
 </body>
 </html>
