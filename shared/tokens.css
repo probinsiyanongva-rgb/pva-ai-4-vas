@@ -1,0 +1,224 @@
+/* AI for Virtual Assistants — design tokens
+   Standalone visual identity (not PVA Academy's Design System v2, per the
+   Real Estate Support VA precedent this course follows). */
+
+:root {
+  /* Paper & ink */
+  --paper: #F6F2E9;
+  --paper-raised: #FBF9F4;
+  --ink: #2B2620;
+  --ink-soft: #5B5346;
+  --rule: #DED5C2;
+
+  /* The core duality: AI drafts (teal) vs. the VA's final call (rust) */
+  --ai: #2C6E6B;
+  --ai-tint: #E4EEEC;
+  --ai-border: #B7D2CE;
+
+  --human: #B54A2C;
+  --human-tint: #F5E7DE;
+  --human-border: #E0BDA9;
+
+  /* Category accents used inside lessons */
+  --caution: #C68A2E;
+  --caution-tint: #F6ECD8;
+  --verified: #3F7D4C;
+  --verified-tint: #E4EEE3;
+
+  --font-display: "Newsreader", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --radius: 6px;
+  --max-w: 700px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0 0 0.5em;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; margin-top: 2.5rem; }
+h3 { font-size: 1.15rem; margin-top: 2rem; }
+
+p { margin: 0 0 1em; }
+
+a { color: var(--human); }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--human);
+  outline-offset: 2px;
+}
+
+.wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---- Route bar (home / breadcrumb) ---- */
+.route-bar {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-raised);
+}
+.route-bar .wrap {
+  max-width: 860px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  flex-wrap: wrap;
+}
+.route-bar a { color: var(--ink-soft); text-decoration: none; }
+.route-bar a:hover { color: var(--human); text-decoration: underline; }
+.route-bar .current { color: var(--ink); }
+
+/* ---- AI draft / human-final device (the core recurring visual grammar) ---- */
+.ai-draft {
+  background: var(--ai-tint);
+  border: 1px solid var(--ai-border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin: 0 0 4px;
+  position: relative;
+}
+.ai-draft::before {
+  content: "AI draft";
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ai);
+  background: var(--paper-raised);
+  border: 1px solid var(--ai-border);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 10px;
+}
+
+.human-final {
+  background: var(--human-tint);
+  border: 1px solid var(--human-border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin: 4px 0 1.5em;
+  position: relative;
+}
+.human-final::before {
+  content: "VA's final version";
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--human);
+  background: var(--paper-raised);
+  border: 1px solid var(--human-border);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 10px;
+}
+
+.pair-connector {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  margin: 2px 0;
+}
+
+/* ---- Category chips (AI Can Help / Caution / Human) ---- */
+.chip {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+.chip-ai { background: var(--ai-tint); color: var(--ai); border-color: var(--ai-border); }
+.chip-caution { background: var(--caution-tint); color: var(--caution); border-color: #E4CE9A; }
+.chip-human { background: var(--human-tint); color: var(--human); border-color: var(--human-border); }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn:hover { background: #443C31; }
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+}
+.btn-secondary:hover { border-color: var(--ink); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* ---- Cards (module list, practice items) ---- */
+.card {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+
+/* ---- Progress ---- */
+.progress-track {
+  height: 6px;
+  background: var(--rule);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--human);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+/* ---- Lesson footer nav ---- */
+.lesson-nav-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid var(--rule);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+}
+.lesson-nav-footer a { text-decoration: none; font-weight: 600; }
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .progress-fill { transition: none; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  h1 { font-size: 1.6rem; }
+}

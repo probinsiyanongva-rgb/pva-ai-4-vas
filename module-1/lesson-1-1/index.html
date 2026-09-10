@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1.1: AI Is Changing VA Work — AI for Virtual Assistants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/tokens.css">
+<style>
+  main.wrap { padding: 40px 20px 100px; }
+
+  .lesson-eyebrow { font-size: 0.85rem; color: var(--human); font-weight: 600; margin-bottom: 8px; }
+  .big-question {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    margin: 20px 0 28px;
+    padding: 16px 20px;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--human);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .objectives { background: var(--paper-raised); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px 22px; margin: 0 0 2rem; }
+  .objectives h2 { margin-top: 0; font-size: 1rem; }
+  .objectives ul { margin: 0; padding-left: 1.2em; font-size: 0.95rem; color: var(--ink-soft); }
+  .objectives li { margin-bottom: 4px; }
+
+  .workflow-line {
+    font-family: var(--font-display);
+    text-align: center;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    margin: 1.5em 0;
+    padding: 12px;
+    border-top: 1px dashed var(--rule);
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .category-block { border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px 22px; margin-bottom: 14px; }
+  .category-block h3 { margin-top: 0; display: flex; align-items: center; gap: 10px; }
+  .category-block ul { margin: 10px 0 0; padding-left: 1.2em; }
+
+  .example-map { display: grid; gap: 4px; margin: 1.5em 0; }
+  .example-map .step {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    font-size: 0.95rem;
+  }
+  .example-map .arrow { text-align: center; color: var(--ink-soft); font-size: 0.9rem; }
+
+  /* Practice exercise */
+  .practice-item { border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 16px; background: var(--paper-raised); }
+  .practice-item p.scenario { margin-bottom: 12px; }
+  .practice-choices { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .practice-choices button {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    cursor: pointer;
+  }
+  .practice-choices button.selected-a { border-color: var(--ai-border); background: var(--ai-tint); color: var(--ai); }
+  .practice-choices button.selected-b { border-color: #E4CE9A; background: var(--caution-tint); color: var(--caution); }
+  .practice-choices button.selected-c { border-color: var(--human-border); background: var(--human-tint); color: var(--human); }
+  .practice-reveal { display: none; font-size: 0.92rem; color: var(--ink-soft); border-top: 1px solid var(--rule); padding-top: 10px; margin-top: 6px; }
+  .practice-reveal.show { display: block; }
+  .practice-reveal .answer-tag { font-weight: 700; }
+
+  /* Task map (PROVE) */
+  .task-map-row { border: 1px solid var(--rule); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 12px; background: var(--paper-raised); }
+  .task-map-row label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); margin: 10px 0 4px; }
+  .task-map-row label:first-child { margin-top: 0; }
+  .task-map-row input[type=text], .task-map-row textarea, .task-map-row select {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 8px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .task-map-row textarea { resize: vertical; min-height: 44px; }
+  .task-num { font-family: var(--font-display); font-weight: 600; color: var(--human); margin-bottom: 4px; }
+
+  textarea.full-input, input.full-input {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 10px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--paper-raised);
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  textarea.full-input { min-height: 70px; resize: vertical; }
+
+  .save-note { font-size: 0.85rem; color: var(--ink-soft); font-style: italic; }
+
+  .standard-box {
+    background: var(--verified-tint);
+    border: 1px solid #BEDCC1;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 1.5em 0;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+  }
+
+  .complete-row {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding: 24px;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+  }
+  .complete-row.is-done { background: var(--verified-tint); border-color: #BEDCC1; }
+  .status-msg { font-size: 0.9rem; color: var(--ink-soft); margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<div class="route-bar">
+  <div class="wrap">
+    <a href="/">AI for Virtual Assistants</a>
+    <span>→</span>
+    <span class="current">Module 1: AI-Assisted VA Mindset & Responsible Use</span>
+    <span>→</span>
+    <span class="current">Lesson 1.1</span>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="lesson-eyebrow">Module 1 · Lesson 1.1 · Concept / Foundational</div>
+  <h1>AI Is Changing VA Work</h1>
+
+  <div class="big-question">Big Question: What does it actually mean to be a VA who works with AI?</div>
+
+  <div class="objectives">
+    <h2>By the end of this lesson, you should be able to:</h2>
+    <ul>
+      <li>explain what AI-assisted VA work means</li>
+      <li>identify specific parts of VA work where AI can provide useful assistance</li>
+      <li>recognize tasks where AI needs to be used with more caution</li>
+      <li>recognize parts of VA work that primarily require human judgment</li>
+      <li>identify where AI actually adds value to a VA task</li>
+    </ul>
+  </div>
+
+  <h2>1. Why This Matters to a VA</h2>
+  <p>AI is becoming part of everyday work. For VAs, that can mean faster drafting, easier summarization, better organization, research support, and help with repetitive tasks. But knowing that AI can do these things is only the beginning.</p>
+  <p>A client hires you to get work done correctly. That means an AI-assisted VA needs to understand <strong>where AI fits into the work</strong>.</p>
+  <p>Consider a simple example. Sarah, the CEO of <strong>BrightPath Learning Co.</strong>, sends you a rough set of notes from a meeting and asks:</p>
+
+  <div class="ai-draft" style="background:var(--paper-raised); border-color: var(--rule);">
+    "Can you turn these into a clear list of action items?"
+  </div>
+
+  <p>You could organize everything manually. You could also use AI to help identify and organize possible action items.</p>
+  <p>The important question is not simply <em>"Can AI do this?"</em> The better question is:</p>
+  <p style="font-family: var(--font-display); font-size:1.1rem;">"Which part of this task can AI help with?"</p>
+  <p>That is the skill we are beginning to develop in this course.</p>
+
+  <h2>2. What Is AI-Assisted VA Work?</h2>
+  <p>AI-assisted VA work means <strong>using AI as part of your workflow to help complete a real VA task</strong>. The VA still needs to understand the assignment and work with the information available.</p>
+
+  <div class="workflow-line">Client request → VA understands the task → AI assists where useful → VA completes the work</div>
+
+  <p>AI is one part of the workflow. It does not have to be used for every step.</p>
+
+  <h3>Example: BrightPath Meeting Notes</h3>
+  <p>Sarah gives you meeting notes and asks for action items. You might:</p>
+  <div class="example-map">
+    <div class="step">1. Read the notes and understand what Sarah is asking for <span class="chip chip-human">Human</span></div>
+    <div class="step">2. Use AI to identify possible action items <span class="chip chip-ai">AI Can Help</span></div>
+    <div class="step">3. Compare the suggested items with the original notes <span class="chip chip-human">Human</span></div>
+    <div class="step">4. Remove items that do not belong <span class="chip chip-human">Human</span></div>
+    <div class="step">5. Organize the remaining items into a clear list <span class="chip chip-human">Human</span></div>
+    <div class="step">6. Prepare the final version for Sarah <span class="chip chip-human">Human</span></div>
+  </div>
+  <p>AI assisted with one part of the task. The other steps still required you to understand the request, check the result, and complete the work.</p>
+  <p><strong>The point is not to use AI for every step. The point is to recognize where it can add useful value.</strong></p>
+
+  <h2>3. Where Can AI Help?</h2>
+  <p>AI can be useful for many common VA activities:</p>
+  <ul>
+    <li><strong>Drafting</strong> — client emails, customer service responses, status updates, announcements, short summaries</li>
+    <li><strong>Organizing</strong> — turning notes into a task list, creating a checklist, extracting action items</li>
+    <li><strong>Summarizing</strong> — meeting transcripts, long emails, reports, articles</li>
+    <li><strong>Brainstorming</strong> — subject line options, questions to investigate, ways to structure a document</li>
+    <li><strong>Research Preparation</strong> — generating research questions, suggesting search terms</li>
+  </ul>
+  <p>Whether AI should actually be used depends on the task and its context.</p>
+
+  <h2>4. Three Ways to Think About AI's Role</h2>
+
+  <div class="category-block">
+    <h3><span class="chip chip-ai">A. AI Can Help</span></h3>
+    <p>Specific tasks where AI can provide useful assistance: creating a first draft, rewriting provided text, summarizing supplied information, organizing notes, brainstorming options, developing research questions.</p>
+    <p>The VA still completes the task and determines what belongs in the final result.</p>
+  </div>
+
+  <div class="category-block">
+    <h3><span class="chip chip-caution">B. AI Can Help With Caution</span></h3>
+    <p>Tasks where AI may be useful, but the VA needs to pay closer attention to context and quality: drafting customer service responses, conducting research for a client decision, preparing a report with important information, turning a process description into an SOP, organizing a large inbox, assisting with scheduling.</p>
+  </div>
+
+  <div class="category-block">
+    <h3><span class="chip chip-human">C. Primarily Human Work</span></h3>
+    <p>Tasks that depend heavily on human judgment: deciding when an unclear instruction needs clarification, deciding whether an issue needs escalation, interpreting what the client actually wants, deciding which information is important, deciding what to do when information is missing.</p>
+    <p>AI might help you think through these situations. The important judgment still belongs to the VA.</p>
+  </div>
+
+  <h2>5. Classify the Specific Task, Not the Whole Job</h2>
+  <p>We are not saying "research is an AI task," and we are not saying "research is a human task." Instead, look at the <strong>specific part of the work</strong>.</p>
+  <div class="example-map">
+    <div class="step">Brainstorm research questions <span class="chip chip-ai">AI Can Help</span></div>
+    <div class="step">Conduct research for an important client decision <span class="chip chip-caution">Caution</span></div>
+    <div class="step">Decide which findings matter most to the client's decision <span class="chip chip-human">Human</span></div>
+  </div>
+  <p><strong>Classify the specific task or step in front of you.</strong> The same broad VA activity can contain different types of work.</p>
+
+  <h2>6. AI-Assisted Work Contains Human Steps Too</h2>
+  <p>Sarah asks you to prepare a weekly status update for BrightPath. You might:</p>
+  <div class="example-map">
+    <div class="step">Understand what Sarah needs <span class="chip chip-human">Human</span></div>
+    <div class="step">Organize the week's notes and tasks <span class="chip chip-ai">AI Can Help</span></div>
+    <div class="step">Create a first draft of the update <span class="chip chip-ai">AI Can Help</span></div>
+    <div class="step">Decide what information is important to highlight <span class="chip chip-human">Human</span></div>
+    <div class="step">Prepare the final update <span class="chip chip-human">Human</span></div>
+  </div>
+  <p>Checking or deciding what belongs in the final result is <strong>not automatically another AI task</strong>. AI may assist with some steps. You may complete other steps yourself. That is what it means to use AI as part of a workflow.</p>
+
+  <h2>7. A Simple BrightPath Example</h2>
+  <p>Sarah sends you this request:</p>
+  <div class="ai-draft" style="background:var(--paper-raised); border-color: var(--rule);">
+    "Please organize these notes from today's onboarding meeting into a list of tasks for the team."
+  </div>
+  <div class="example-map">
+    <div class="step">Understand the request — what does Sarah actually want? <span class="chip chip-human">Human</span></div>
+    <div class="step">Identify possible tasks from the notes <span class="chip chip-ai">AI Can Help</span></div>
+    <div class="step">Check the suggested items against the notes and purpose <span class="chip chip-human">Human checking</span></div>
+    <div class="step">Prepare the final list <span class="chip chip-human">VA work</span></div>
+  </div>
+  <p>The point is not that AI is always better. <strong>The point is that AI may add value to selected parts of the workflow.</strong></p>
+
+  <h2>8. PRACTICE: Where Does AI Fit?</h2>
+  <p>For each task, choose the category, then reveal one reasonable way to classify it. Context matters — your reasoning is what counts, not landing on the exact same label.</p>
+
+  <div id="practiceList"></div>
+
+  <h2>9. What Should You Notice?</h2>
+  <p>Some tasks are good candidates for AI assistance. Some can benefit from AI but require more attention. Some depend heavily on human judgment. This is normal.</p>
+  <p><strong>There is no rule that says a good VA should use AI on every task.</strong> The goal is to recognize where AI can provide useful assistance — and sometimes the simplest choice is to do the work yourself. The skill is knowing the difference.</p>
+
+  <h2>10. PROVE: AI-Assisted VA Task Map</h2>
+  <p>Build your first course evidence artifact — a Task Map showing where AI could fit into common VA work. Start with these six BrightPath tasks, then add six more of your own from areas like communication, administration, research, documentation, scheduling, customer service, reporting, or organization. For each task, note the AI category, where AI could help, and what the VA still owns.</p>
+
+  <div id="taskMap"></div>
+
+  <p class="save-note">Your answers here are saved to this Task Map only in this browser (local, not sent anywhere) — they're a learning artifact, not something you'd send to a client. If you want to keep this work for your portfolio, copy it into your own document before moving on.</p>
+
+  <div class="standard-box">AI should add value to the work, not simply be added to the work.</div>
+
+  <h2>11. Short AI Audit Note</h2>
+  <p>Because this is your first lesson, your audit is intentionally simple. If you used AI while creating your Task Map, note what you used it for, what you checked, and what you changed. If you didn't use AI, that's a valid decision too — just say so.</p>
+  <textarea class="full-input" id="auditNote" placeholder="Task: what did I use AI for? What I checked. What I changed. (Or: I decided AI was not necessary for this part of the task.)"></textarea>
+
+  <h2>12. Reflection</h2>
+  <label style="font-weight:600; font-size:0.9rem;">What is one VA task where you can see AI being genuinely useful?</label>
+  <textarea class="full-input" id="reflect1"></textarea>
+  <label style="font-weight:600; font-size:0.9rem;">What is one part of VA work where you think human judgment will remain especially important?</label>
+  <textarea class="full-input" id="reflect2"></textarea>
+  <label style="font-weight:600; font-size:0.9rem;">How has your idea of an "AI-assisted VA" changed after this lesson?</label>
+  <textarea class="full-input" id="reflect3"></textarea>
+
+  <h2>13. Lesson Close</h2>
+  <p>AI is becoming another tool in the VA's toolbox. You do not need to become an AI engineer to work effectively with it. You need to understand the work first. Then you need to recognize where AI can help.</p>
+  <p>Remember the question: <strong>Where does AI actually add value?</strong> That is where your AI-assisted VA journey begins.</p>
+
+  <div class="complete-row" id="completeRow">
+    <button class="btn" id="completeBtn">Mark Lesson Complete</button>
+    <div class="status-msg" id="completeStatus">Fill in at least the six starter tasks in your Task Map to mark this lesson complete.</div>
+  </div>
+
+  <nav class="lesson-nav-footer no-print">
+    <span></span>
+    <a href="#" id="nextLink">Next: Lesson 1.2 →</a>
+  </nav>
+</main>
+
+<script src="/shared/course-data.js"></script>
+<script src="/shared/progress.js"></script>
+<script>
+  const LESSON_ID = "1.1";
+  AIVAProgress.markLessonStarted(LESSON_ID);
+
+  // ---- Practice exercise data ----
+  const PRACTICE = [
+    { n: 1, title: "Client Email", scenario: "Sarah gives you a rough email and asks you to make it clearer and more professional before she sends it to a client.", answer: "a", explain: "AI Can Help — AI can provide a first draft or improve clarity and tone using the information Sarah provides. The VA still needs to make sure the final message accurately reflects Sarah's intended message." },
+    { n: 2, title: "Meeting Action Items", scenario: "Sarah gives you notes from a BrightPath team meeting and asks you to identify the action items and organize them into a clear list.", answer: "a", explain: "AI Can Help — AI can help identify and organize possible action items from the notes. The VA still needs to check the suggestions against the original notes." },
+    { n: 3, title: "Unclear Client Instruction", scenario: "Sarah sends you an instruction that could reasonably be interpreted in two different ways. You are not sure which one she intended.", answer: "c", explain: "Primarily Human Work — AI might help identify possible interpretations, but the important VA skill is recognizing when clarification is needed rather than simply guessing." },
+    { n: 4, title: "Inbox Organization", scenario: "Sarah gives you a list of 30 emails and asks you to group them into categories such as \u201CNeeds Response,\u201D \u201CWaiting,\u201D \u201CReference,\u201D and \u201CFollow Up.\u201D", answer: "b", explain: "AI Can Help With Caution — AI may help categorize messages, especially with many of them. The VA still needs to understand the categories and check whether important messages were placed appropriately." },
+    { n: 5, title: "Client Escalation", scenario: "You notice a problem with a BrightPath task that could affect an important client deadline. You need to decide whether Sarah should be informed immediately.", answer: "c", explain: "Primarily Human Work — AI could help summarize the issue or prepare a message, but deciding whether an important problem needs escalation is a judgment call." },
+    { n: 6, title: "Checklist From Notes", scenario: "Sarah gives you rough notes describing the steps for a recurring administrative task and asks you to turn them into a simple checklist.", answer: "a", explain: "AI Can Help — AI can help organize rough process notes into a checklist. The VA still needs to make sure the checklist accurately represents the actual process." },
+    { n: 7, title: "Weekly Status Update", scenario: "You have a set of completed tasks, pending tasks, and notes from the week. Sarah asks you to prepare a first draft of the weekly status update.", answer: "b", explain: "AI Can Help With Caution — AI can help organize information and create a first draft. The VA still needs to determine what belongs in the update and whether it accurately represents the week's work." },
+    { n: 8, title: "Research Questions", scenario: "Sarah asks you to research a new software category BrightPath is considering. Before starting the research, you need to identify the questions that should be answered.", answer: "a", explain: "AI Can Help — AI can help brainstorm possible research questions. The VA still needs to determine which questions actually matter for the client's decision. Note the distinction from \u201Cconducting research for a decision,\u201D which is Caution — the category depends on the specific task, not just the word \u201Cresearch.\u201D" }
+  ];
+
+  const practiceList = document.getElementById('practiceList');
+  PRACTICE.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'practice-item';
+    div.innerHTML = `
+      <div class="task-num">Task ${item.n}: ${item.title}</div>
+      <p class="scenario">${item.scenario}</p>
+      <div class="practice-choices">
+        <button data-val="a">A. AI Can Help</button>
+        <button data-val="b">B. AI Can Help With Caution</button>
+        <button data-val="c">C. Primarily Human Work</button>
+      </div>
+      <div class="practice-reveal"><span class="answer-tag">One reasonable answer:</span> ${item.explain}</div>
+    `;
+    div.querySelectorAll('.practice-choices button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        div.querySelectorAll('.practice-choices button').forEach(b => b.className = '');
+        btn.className = 'selected-' + btn.dataset.val;
+        div.querySelector('.practice-reveal').classList.add('show');
+      });
+    });
+    practiceList.appendChild(div);
+  });
+
+  // ---- Task Map ----
+  const STARTER_TASKS = [
+    "Draft a client email",
+    "Organize meeting notes into action items",
+    "Create a checklist from rough process notes",
+    "Prepare a weekly status update",
+    "Organize a list of emails into categories",
+    "Develop research questions for a client assignment"
+  ];
+
+  const taskMapEl = document.getElementById('taskMap');
+  const TOTAL_ROWS = 12;
+  const STORAGE_TASKMAP_KEY = "aiva_lesson_1_1_taskmap";
+
+  function loadTaskMap() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_TASKMAP_KEY)) || {}; }
+    catch (e) { return {}; }
+  }
+  function saveTaskMap(data) {
+    localStorage.setItem(STORAGE_TASKMAP_KEY, JSON.stringify(data));
+  }
+
+  const saved = loadTaskMap();
+
+  for (let i = 0; i < TOTAL_ROWS; i++) {
+    const isStarter = i < STARTER_TASKS.length;
+    const row = document.createElement('div');
+    row.className = 'task-map-row';
+    row.innerHTML = `
+      <div class="task-num">Task ${i + 1}${isStarter ? '' : ' (your own)'}</div>
+      <label>VA Task</label>
+      <input type="text" class="tm-task" ${isStarter ? 'readonly' : ''} value="${isStarter ? STARTER_TASKS[i] : (saved['task'+i] || '')}" placeholder="Name a VA task">
+      <label>AI Category</label>
+      <select class="tm-category">
+        <option value="">Select one</option>
+        <option value="a">A. AI Can Help</option>
+        <option value="b">B. AI Can Help With Caution</option>
+        <option value="c">C. Primarily Human Work</option>
+      </select>
+      <label>Where AI Could Help</label>
+      <textarea class="tm-where"></textarea>
+      <label>What the VA Still Owns</label>
+      <textarea class="tm-owns"></textarea>
+    `;
+    row.querySelector('.tm-category').value = saved['cat'+i] || '';
+    row.querySelector('.tm-where').value = saved['where'+i] || '';
+    row.querySelector('.tm-owns').value = saved['owns'+i] || '';
+    taskMapEl.appendChild(row);
+
+    const persist = () => {
+      const data = loadTaskMap();
+      if (!isStarter) data['task'+i] = row.querySelector('.tm-task').value;
+      data['cat'+i] = row.querySelector('.tm-category').value;
+      data['where'+i] = row.querySelector('.tm-where').value;
+      data['owns'+i] = row.querySelector('.tm-owns').value;
+      saveTaskMap(data);
+      updateCompleteState();
+    };
+    row.querySelectorAll('input, select, textarea').forEach(el => el.addEventListener('change', persist));
+  }
+
+  // Restore audit + reflection
+  ['auditNote', 'reflect1', 'reflect2', 'reflect3'].forEach(id => {
+    const el = document.getElementById(id);
+    const key = 'aiva_lesson_1_1_' + id;
+    el.value = localStorage.getItem(key) || '';
+    el.addEventListener('change', () => localStorage.setItem(key, el.value));
+  });
+
+  function starterTasksFilled() {
+    const rows = taskMapEl.querySelectorAll('.task-map-row');
+    for (let i = 0; i < STARTER_TASKS.length; i++) {
+      const cat = rows[i].querySelector('.tm-category').value;
+      const where = rows[i].querySelector('.tm-where').value.trim();
+      if (!cat || !where) return false;
+    }
+    return true;
+  }
+
+  function updateCompleteState() {
+    const done = AIVAProgress.isLessonComplete(LESSON_ID);
+    const canComplete = starterTasksFilled();
+    const btn = document.getElementById('completeBtn');
+    const status = document.getElementById('completeStatus');
+    const row = document.getElementById('completeRow');
+    if (done) {
+      row.classList.add('is-done');
+      btn.textContent = "Lesson Complete ✓";
+      btn.disabled = true;
+      status.textContent = "Nice work — this lesson is marked complete in your local progress.";
+    } else {
+      btn.disabled = !canComplete;
+      status.textContent = canComplete
+        ? "Ready to mark complete."
+        : "Fill in at least the six starter tasks in your Task Map to mark this lesson complete.";
+    }
+  }
+
+  document.getElementById('completeBtn').addEventListener('click', () => {
+    if (!starterTasksFilled()) return;
+    AIVAProgress.markLessonComplete(LESSON_ID);
+    updateCompleteState();
+  });
+
+  // Next lesson link
+  const neighbors = COURSE_DATA.getNeighbors(LESSON_ID);
+  if (neighbors.next) {
+    document.getElementById('nextLink').href = COURSE_DATA.lessonPath(neighbors.next);
+    document.getElementById('nextLink').textContent = `Next: Lesson ${neighbors.next.id} →`;
+  }
+
+  updateCompleteState();
+</script>
+
+</body>
+</html>
