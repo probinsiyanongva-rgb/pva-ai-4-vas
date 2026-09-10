@@ -116,6 +116,16 @@ COURSE_DATA.getNeighbors = function (id) {
   };
 };
 
+// One page per MODULE (all its lessons as anchored sections on one page),
+// matching the Real Estate Support VA reference architecture.
+COURSE_DATA.modulePath = function (m) {
+  return `/${m.slug}/`;
+};
+
+COURSE_DATA.lessonAnchor = function (l) {
+  return `l${l.id.replace(".", "-")}`; // "1.1" -> "l1-1"
+};
+
 COURSE_DATA.lessonPath = function (l) {
-  return `/${l.moduleSlug}/${l.slug}/`;
+  return `/${l.moduleSlug}/#${COURSE_DATA.lessonAnchor(l)}`;
 };

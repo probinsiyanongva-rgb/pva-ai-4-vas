@@ -3,101 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI for Virtual Assistants — Practical AI Skills for Real Client Work</title>
+<title>AI for Virtual Assistants — Free Course — PVA Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/tokens.css">
 <style>
-  header.hero {
-    border-bottom: 1px solid var(--rule);
-    padding: 56px 0 40px;
-  }
-  .eyebrow {
-    font-size: 0.85rem;
-    color: var(--human);
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  .hero p.lede { font-size: 1.1rem; color: var(--ink-soft); max-width: 60ch; }
-  .promise {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    margin: 24px 0 0;
-    padding: 18px 20px;
-    border-left: 3px solid var(--human);
-    background: var(--human-tint);
-    border-radius: 0 var(--radius) var(--radius) 0;
-  }
+  header.hero { border-bottom: 1px solid var(--rule); padding: 40px 0 40px; }
+  .hero p.lede { font-size: 1.1rem; color: var(--ink-soft); max-width: 60ch; margin-top: 12px; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0 10px; }
+  .no-login-note { font-size: 0.88rem; color: var(--verified); font-weight: 600; }
 
-  .notice {
-    margin: 32px 0;
-    padding: 18px 20px;
-    background: var(--ai-tint);
-    border: 1px solid var(--ai-border);
-    border-radius: var(--radius);
-  }
+  main.wrap { padding: 40px 20px 20px; }
+
+  .notice { margin: 32px 0; padding: 18px 20px; background: var(--ai-tint); border: 1px solid var(--ai-border); border-radius: var(--radius); }
   .notice h3 { margin-top: 0; font-size: 1rem; color: var(--ai); }
   .notice p { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 0.6em; }
+  .notice ul { font-size: 0.92rem; color: var(--ink-soft); margin: 0.4em 0; }
 
-  main.wrap { padding: 40px 20px 80px; }
+  .course-progress { margin: 40px 0; }
+  .course-progress .stat-row { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 8px; }
 
-  .course-progress { margin-bottom: 40px; }
-  .course-progress .stat-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: var(--ink-soft);
-    margin-bottom: 8px;
-  }
+  ol.module-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; counter-reset: modnum; }
+  ol.module-list li { counter-increment: modnum; }
+  ol.module-list a { display: flex; gap: 14px; align-items: flex-start; text-decoration: none; color: inherit; padding: 16px 4px; border-bottom: 1px solid var(--rule); }
+  ol.module-list a:hover .m-title { color: var(--human); }
+  .m-num { font-family: var(--font-display); font-weight: 700; color: var(--human); font-size: 1.1rem; min-width: 26px; }
+  .m-num::before { content: counter(modnum); }
+  .m-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 3px; }
+  .m-desc { font-size: 0.88rem; color: var(--ink-soft); }
+  .m-status { font-size: 0.78rem; color: var(--ink-soft); white-space: nowrap; margin-left: auto; padding-left: 12px; }
 
-  .module-list { display: flex; flex-direction: column; gap: 14px; }
-  .module-card {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
-  .module-card .card:hover { border-color: var(--human); }
-  .module-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .module-num {
-    font-family: var(--font-display);
-    color: var(--human);
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-  .module-title { font-family: var(--font-display); font-size: 1.15rem; margin: 4px 0 10px; }
-  .module-meta { font-size: 0.85rem; color: var(--ink-soft); }
-
-  .reset-row {
-    margin-top: 48px;
-    padding-top: 20px;
-    border-top: 1px solid var(--rule);
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-  }
-  .reset-row button {
-    background: none;
-    border: none;
-    color: var(--ink-soft);
-    text-decoration: underline;
-    cursor: pointer;
-    font-size: 0.85rem;
-    padding: 0;
-  }
+  .reset-row { margin: 40px 0; font-size: 0.85rem; color: var(--ink-soft); }
+  .reset-row button { background: none; border: none; color: var(--ink-soft); text-decoration: underline; cursor: pointer; font-size: 0.85rem; padding: 0; }
 </style>
 </head>
 <body>
 
+<div class="pva-topbar">
+  <div class="wrap-wide">
+    <a href="https://probinsiyanongva.org/" target="_blank" rel="noopener">PVA Academy</a>
+    <span class="course-name">AI for Virtual Assistants</span>
+  </div>
+</div>
+
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Free · Self-Paced · No Login Required</div>
+    <div class="eyebrow-tracked">Free Course · PVA Academy</div>
     <h1>AI for Virtual Assistants</h1>
-    <p class="lede">Practical AI skills for real client work — learn to use AI as part of a real VA workflow, with your fictional client BrightPath Learning Co., across 7 modules and 38 lessons.</p>
-    <p class="promise">AI can help you do the work. You are still responsible for the work.</p>
+    <p class="lede">Practical AI skills for real client work. Learn where AI genuinely helps, where it needs caution, and where the judgment stays with you — through a running assignment with your fictional client, BrightPath Learning Co.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="/module-1/">Start Module 1 →</a>
+      <a class="btn btn-secondary" href="#modules">See the course map</a>
+    </div>
+    <div class="no-login-note">✓ No login required</div>
   </div>
 </header>
 
@@ -105,11 +63,61 @@
 
   <div class="notice">
     <h3>Before You Start</h3>
-    <p>This course has no accounts and no login. Your progress is saved only in <strong>this browser, on this device</strong>, using local storage.</p>
-    <p>If you clear your browsing data, switch browsers, or switch devices, your progress will not carry over. Bookmark this page, and consider saving your written work (Task Maps, drafts, Audit Notes) somewhere of your own — like a Google Doc or Drive folder — as you go.</p>
+    <p><strong>No login is required.</strong> You can start learning right away.</p>
+    <p>Your course progress and saved activities are automatically saved on the device and browser you are using right now — nothing is sent to an account or a server.</p>
+    <p>For the best experience, keep using the <strong>same device and browser</strong> while you take this course.</p>
+    <ul>
+      <li>Your saved progress may not be available if you switch to another device or browser.</li>
+      <li>Clearing your browser's site data may remove your saved progress.</li>
+      <li>Private or incognito browsing may prevent your saved progress from being available later.</li>
+    </ul>
   </div>
 
-  <section class="course-progress">
+  <h2>By the end of this course, you'll be able to</h2>
+  <ul class="check-list">
+    <li>Recognize where AI can genuinely help with VA work — and where it should be used with caution, or not at all</li>
+    <li>Give AI useful context while protecting client information</li>
+    <li>Define what a useful result looks like and work with AI in multiple rounds</li>
+    <li>Audit AI-generated work and catch unsupported claims before you rely on them</li>
+    <li>Write professional client communication, adapted for async and international work</li>
+    <li>Use AI for research without treating it as the source of truth</li>
+    <li>Assist with spreadsheets, SOPs, and reports while verifying the result yourself</li>
+    <li>Compare AI tools and choose the right one for the task, without becoming loyal to one</li>
+    <li>Complete a realistic capstone and document your AI use honestly</li>
+  </ul>
+  <p style="color:var(--ink-soft); font-size:0.95rem;">This course is not an AI-tools course. It's practical VA training that happens to use AI as a productivity layer — the central skill is judgment, not prompting.</p>
+
+  <h2>One principle, used everywhere in this course</h2>
+  <p style="color:var(--ink-soft);">Every module comes back to the same seven-stage workflow. Learning to move through it — and know when to stop and check — is most of what this course is teaching.</p>
+  <div class="framework-grid">
+    <div class="framework-card"><div class="fw-label">Understand</div><div class="fw-desc">What is the client actually asking for?</div></div>
+    <div class="framework-card"><div class="fw-label">Prepare</div><div class="fw-desc">What does AI actually need to help?</div></div>
+    <div class="framework-card"><div class="fw-label">Define the Result</div><div class="fw-desc">What should a useful output look like?</div></div>
+    <div class="framework-card"><div class="fw-label">Use AI</div><div class="fw-desc">Get a draft — not a finished deliverable.</div></div>
+    <div class="framework-card"><div class="fw-label">Audit</div><div class="fw-desc">Check it against the source. Trust nothing by default.</div></div>
+    <div class="framework-card"><div class="fw-label">Correct</div><div class="fw-desc">Fix what's wrong. This is still your job.</div></div>
+    <div class="framework-card"><div class="fw-label">Deliver</div><div class="fw-desc">You own what you send the client.</div></div>
+  </div>
+  <p style="text-align:center; font-family:var(--font-display); font-size:1.05rem; color:var(--ink-soft);">AI can help you do the work. You are still responsible for the work.</p>
+
+  <h2>How work is tagged throughout the course</h2>
+  <div class="tag-legend">
+    <div class="tag-legend-item">
+      <span class="tag-label tag-learning">Learning Artifact</span>
+      <p>Work you complete while learning — builds the skill, not submitted as proof of it.</p>
+    </div>
+    <div class="tag-legend-item">
+      <span class="tag-label tag-proof">Proof-of-Skill Artifact</span>
+      <p>Stronger module work that demonstrates a specific competency — worth keeping for your portfolio.</p>
+    </div>
+    <div class="tag-legend-item">
+      <span class="tag-label tag-capstone">Capstone Evidence</span>
+      <p>Work that forms part of the Module 7 capstone and your final AI-Use Explanation.</p>
+    </div>
+  </div>
+
+  <section class="course-progress" id="modules">
+    <h2 style="margin-top:0;">The Course</h2>
     <div class="stat-row">
       <span id="progressLabel">0 of 38 lessons complete</span>
       <span id="progressPercent">0%</span>
@@ -117,13 +125,15 @@
     <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
   </section>
 
-  <section class="module-list" id="moduleList"></section>
+  <ol class="module-list" id="moduleList"></ol>
 
   <div class="reset-row">
     <button id="resetBtn" type="button">Reset my local progress</button>
   </div>
 
 </main>
+
+<footer class="site-footer">AI for Virtual Assistants · PVA Academy · Your progress is saved in this browser only.</footer>
 
 <script src="/shared/course-data.js"></script>
 <script src="/shared/progress.js"></script>
@@ -139,20 +149,18 @@
     list.innerHTML = '';
     COURSE_DATA.modules.forEach(m => {
       const mp = AIVAProgress.moduleProgress(m.id);
-      const firstLesson = m.lessons[0];
-      const a = document.createElement('a');
-      a.className = 'module-card';
-      a.href = COURSE_DATA.lessonPath({ ...firstLesson, moduleSlug: m.slug });
-      a.innerHTML = `
-        <div class="card">
-          <div class="module-head">
-            <span class="module-num">Module ${m.id}</span>
-            <span class="module-meta">${mp.done}/${mp.total} lessons</span>
-          </div>
-          <div class="module-title">${m.title}</div>
-          <div class="progress-track"><div class="progress-fill" style="width:${Math.round((mp.done/mp.total)*100)}%"></div></div>
-        </div>`;
-      list.appendChild(a);
+      const li = document.createElement('li');
+      const statusText = mp.done === 0 ? 'Not started' : (mp.done === mp.total ? 'Complete' : `${mp.done}/${mp.total} lessons`);
+      li.innerHTML = `
+        <a href="${COURSE_DATA.modulePath(m)}">
+          <span class="m-num"></span>
+          <span>
+            <div class="m-title">${m.title}</div>
+            <div class="m-desc">${m.lessons.length} lessons</div>
+          </span>
+          <span class="m-status">${statusText}</span>
+        </a>`;
+      list.appendChild(li);
     });
   }
 

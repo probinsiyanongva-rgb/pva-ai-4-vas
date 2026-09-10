@@ -1,9 +1,10 @@
 /* AI for Virtual Assistants — design tokens
-   Standalone visual identity (not PVA Academy's Design System v2, per the
-   Real Estate Support VA precedent this course follows). */
+   Standalone visual identity, styled after the Real Estate Support VA
+   reference build (real-estate-support-va.pages.dev): tracked-caps eyebrow,
+   checkmark outcomes, labeled framework cards, evidence tag chips, a
+   🏠 Home breadcrumb, and a slim "PVA Academy" credit line at top. */
 
 :root {
-  /* Paper & ink */
   --paper: #F6F2E9;
   --paper-raised: #FBF9F4;
   --ink: #2B2620;
@@ -19,7 +20,6 @@
   --human-tint: #F5E7DE;
   --human-border: #E0BDA9;
 
-  /* Category accents used inside lessons */
   --caution: #C68A2E;
   --caution-tint: #F6ECD8;
   --verified: #3F7D4C;
@@ -30,10 +30,10 @@
 
   --radius: 6px;
   --max-w: 700px;
+  --max-w-wide: 860px;
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -45,180 +45,138 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.25;
-  color: var(--ink);
-  margin: 0 0 0.5em;
-}
-
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.25; color: var(--ink); margin: 0 0 0.5em; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.5rem; margin-top: 2.5rem; }
 h3 { font-size: 1.15rem; margin-top: 2rem; }
-
 p { margin: 0 0 1em; }
-
 a { color: var(--human); }
-a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
-  outline: 2px solid var(--human);
-  outline-offset: 2px;
-}
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--human); outline-offset: 2px; }
 
-.wrap {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 20px;
-}
+.wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
+.wrap-wide { max-width: var(--max-w-wide); margin: 0 auto; padding: 0 20px; }
 
-/* ---- Route bar (home / breadcrumb) ---- */
-.route-bar {
-  border-bottom: 1px solid var(--rule);
-  background: var(--paper-raised);
-}
-.route-bar .wrap {
-  max-width: 860px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-  flex-wrap: wrap;
-}
+/* ---- Slim PVA Academy top bar (every page) ---- */
+.pva-topbar { background: var(--ink); color: var(--paper); }
+.pva-topbar .wrap-wide { display: flex; align-items: center; justify-content: space-between; padding: 8px 20px; font-size: 0.82rem; }
+.pva-topbar a { color: var(--paper); text-decoration: none; font-weight: 600; letter-spacing: 0.02em; }
+.pva-topbar a:hover { text-decoration: underline; }
+.pva-topbar .course-name { color: #C9C0AE; }
+
+/* ---- Route bar / breadcrumb (🏠 Home style) ---- */
+.route-bar { border-bottom: 1px solid var(--rule); background: var(--paper-raised); }
+.route-bar .wrap-wide { display: flex; align-items: center; gap: 8px; padding-top: 12px; padding-bottom: 12px; font-size: 0.9rem; color: var(--ink-soft); flex-wrap: wrap; }
 .route-bar a { color: var(--ink-soft); text-decoration: none; }
 .route-bar a:hover { color: var(--human); text-decoration: underline; }
 .route-bar .current { color: var(--ink); }
+.route-bar .progress-count { margin-left: auto; font-weight: 600; color: var(--ink); }
 
-/* ---- AI draft / human-final device (the core recurring visual grammar) ---- */
-.ai-draft {
-  background: var(--ai-tint);
-  border: 1px solid var(--ai-border);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  margin: 0 0 4px;
-  position: relative;
-}
-.ai-draft::before {
-  content: "AI draft";
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--ai);
-  background: var(--paper-raised);
-  border: 1px solid var(--ai-border);
-  border-radius: 999px;
-  padding: 2px 10px;
-  margin-bottom: 10px;
-}
+/* ---- Eyebrow (tracked caps label) ---- */
+.eyebrow-tracked { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--human); }
 
-.human-final {
-  background: var(--human-tint);
-  border: 1px solid var(--human-border);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  margin: 4px 0 1.5em;
-  position: relative;
-}
-.human-final::before {
-  content: "VA's final version";
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--human);
-  background: var(--paper-raised);
-  border: 1px solid var(--human-border);
-  border-radius: 999px;
-  padding: 2px 10px;
-  margin-bottom: 10px;
-}
+/* ---- Checkmark outcome list ---- */
+.check-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.check-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.98rem; }
+.check-list li::before { content: "✓"; color: var(--verified); font-weight: 700; flex: none; }
 
-.pair-connector {
-  text-align: center;
-  color: var(--ink-soft);
-  font-size: 0.85rem;
-  margin: 2px 0;
-}
+/* ---- Framework highlight cards (e.g. the 7-stage workflow) ---- */
+.framework-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 1.5rem 0; }
+.framework-card { border: 1px solid var(--rule); background: var(--paper-raised); border-radius: var(--radius); padding: 14px 16px; }
+.framework-card .fw-label { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--human); margin-bottom: 4px; }
+.framework-card .fw-desc { font-size: 0.85rem; color: var(--ink-soft); }
+
+/* ---- Evidence tag legend + inline tag chips ---- */
+.tag-legend { display: flex; flex-direction: column; gap: 14px; margin: 1.5rem 0; }
+.tag-legend-item { border-left: 3px solid var(--rule); padding-left: 14px; }
+.tag-label { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 10px; border-radius: 999px; margin-bottom: 6px; }
+.tag-learning { background: var(--ai-tint); color: var(--ai); border: 1px solid var(--ai-border); }
+.tag-proof { background: var(--caution-tint); color: var(--caution); border: 1px solid #E4CE9A; }
+.tag-capstone { background: var(--human-tint); color: var(--human); border: 1px solid var(--human-border); }
+
+/* ---- AI draft / human-final device ---- */
+.ai-draft { background: var(--ai-tint); border: 1px solid var(--ai-border); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 4px; }
+.ai-draft::before { content: "AI draft"; display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em; color: var(--ai); background: var(--paper-raised); border: 1px solid var(--ai-border); border-radius: 999px; padding: 2px 10px; margin-bottom: 10px; }
+.human-final { background: var(--human-tint); border: 1px solid var(--human-border); border-radius: var(--radius); padding: 16px 18px; margin: 4px 0 1.5em; }
+.human-final::before { content: "VA's final version"; display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em; color: var(--human); background: var(--paper-raised); border: 1px solid var(--human-border); border-radius: 999px; padding: 2px 10px; margin-bottom: 10px; }
 
 /* ---- Category chips (AI Can Help / Caution / Human) ---- */
-.chip {
-  display: inline-block;
-  border-radius: 999px;
-  padding: 3px 12px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  border: 1px solid transparent;
-}
+.chip { display: inline-block; border-radius: 999px; padding: 3px 12px; font-size: 0.82rem; font-weight: 600; border: 1px solid transparent; }
 .chip-ai { background: var(--ai-tint); color: var(--ai); border-color: var(--ai-border); }
 .chip-caution { background: var(--caution-tint); color: var(--caution); border-color: #E4CE9A; }
 .chip-human { background: var(--human-tint); color: var(--human); border-color: var(--human-border); }
 
 /* ---- Buttons ---- */
-.btn {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 10px 20px;
-  border-radius: var(--radius);
-  border: 1px solid var(--ink);
-  background: var(--ink);
-  color: var(--paper);
-  cursor: pointer;
-  text-decoration: none;
-}
+.btn { display: inline-block; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; padding: 10px 20px; border-radius: var(--radius); border: 1px solid var(--ink); background: var(--ink); color: var(--paper); cursor: pointer; text-decoration: none; }
 .btn:hover { background: #443C31; }
-.btn-secondary {
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--rule);
-}
+.btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
 .btn-secondary:hover { border-color: var(--ink); }
 .btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
-/* ---- Cards (module list, practice items) ---- */
-.card {
-  background: var(--paper-raised);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius);
-  padding: 20px 22px;
-}
+.card { background: var(--paper-raised); border: 1px solid var(--rule); border-radius: var(--radius); padding: 20px 22px; }
 
-/* ---- Progress ---- */
-.progress-track {
-  height: 6px;
-  background: var(--rule);
-  border-radius: 999px;
-  overflow: hidden;
-}
-.progress-fill {
-  height: 100%;
-  background: var(--human);
-  border-radius: 999px;
-  transition: width 0.4s ease;
-}
+.progress-track { height: 6px; background: var(--rule); border-radius: 999px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--human); border-radius: 999px; transition: width 0.4s ease; }
 
-/* ---- Lesson footer nav ---- */
-.lesson-nav-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  border-top: 1px solid var(--rule);
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-}
-.lesson-nav-footer a { text-decoration: none; font-weight: 600; }
+/* ---- Module contents jump-nav (collapsible) ---- */
+.contents-nav { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--paper-raised); margin: 1.5rem 0 2.5rem; }
+.contents-nav summary { cursor: pointer; padding: 12px 18px; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; }
+.contents-nav summary::-webkit-details-marker { display: none; }
+.contents-nav summary::after { content: "▾"; color: var(--ink-soft); }
+.contents-nav[open] summary::after { content: "▴"; }
+.contents-nav-body { padding: 0 18px 16px; }
+.contents-nav-group { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); margin: 14px 0 6px; }
+.contents-nav-group:first-child { margin-top: 0; }
+.contents-nav ol { margin: 0; padding-left: 1.2em; font-size: 0.92rem; }
+.contents-nav li { margin-bottom: 4px; }
+.contents-nav a { text-decoration: none; }
+.contents-nav .status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--rule); margin-right: 6px; }
+.contents-nav .status-dot.done { background: var(--verified); }
 
-/* ---- Reduced motion ---- */
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .progress-fill { transition: none; }
-}
+/* ---- Lesson section within module page ---- */
+.lesson-section { border-top: 1px solid var(--rule); padding-top: 2.5rem; margin-top: 3rem; scroll-margin-top: 20px; }
+.lesson-section:first-of-type { border-top: none; margin-top: 2rem; padding-top: 0; }
+.lesson-num-badge { font-family: var(--font-display); font-weight: 700; color: var(--human); font-size: 0.95rem; }
+.mark-complete-row { text-align: center; margin-top: 2rem; padding: 20px; background: var(--paper-raised); border: 1px solid var(--rule); border-radius: var(--radius); }
+.mark-complete-row.is-done { background: var(--verified-tint); border-color: #BEDCC1; }
+.status-msg { font-size: 0.87rem; color: var(--ink-soft); margin-top: 8px; }
+.coming-soon { text-align: center; padding: 30px; color: var(--ink-soft); font-style: italic; border: 1px dashed var(--rule); border-radius: var(--radius); }
 
-@media (max-width: 480px) {
-  body { font-size: 16px; }
-  h1 { font-size: 1.6rem; }
-}
+/* ---- Footer credit line ---- */
+.site-footer { border-top: 1px solid var(--rule); margin-top: 3rem; padding: 20px; text-align: center; font-size: 0.85rem; color: var(--ink-soft); }
+
+/* ---- Practice exercise ---- */
+.practice-item { border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 16px; background: var(--paper-raised); }
+.practice-item p.scenario { margin-bottom: 12px; }
+.practice-choices { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.practice-choices button { font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--rule); background: var(--paper); cursor: pointer; }
+.practice-choices button.selected-a { border-color: var(--ai-border); background: var(--ai-tint); color: var(--ai); }
+.practice-choices button.selected-b { border-color: #E4CE9A; background: var(--caution-tint); color: var(--caution); }
+.practice-choices button.selected-c { border-color: var(--human-border); background: var(--human-tint); color: var(--human); }
+.practice-reveal { display: none; font-size: 0.92rem; color: var(--ink-soft); border-top: 1px solid var(--rule); padding-top: 10px; margin-top: 6px; }
+.practice-reveal.show { display: block; }
+.practice-reveal .answer-tag { font-weight: 700; }
+
+/* ---- Task map (PROVE) ---- */
+.task-map-row { border: 1px solid var(--rule); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 12px; background: var(--paper-raised); }
+.task-map-row label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); margin: 10px 0 4px; }
+.task-map-row label:first-child { margin-top: 0; }
+.task-map-row input[type=text], .task-map-row textarea, .task-map-row select { width: 100%; font-family: var(--font-body); font-size: 0.95rem; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); }
+.task-map-row textarea { resize: vertical; min-height: 44px; }
+.task-num { font-family: var(--font-display); font-weight: 600; color: var(--human); margin-bottom: 4px; }
+
+textarea.full-input, input.full-input { width: 100%; font-family: var(--font-body); font-size: 0.95rem; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper-raised); color: var(--ink); margin-bottom: 14px; }
+textarea.full-input { min-height: 70px; resize: vertical; }
+.save-note { font-size: 0.85rem; color: var(--ink-soft); font-style: italic; }
+
+.standard-box { background: var(--verified-tint); border: 1px solid #BEDCC1; border-radius: var(--radius); padding: 16px 20px; margin: 1.5em 0; font-family: var(--font-display); font-size: 1.1rem; }
+.workflow-line { font-family: var(--font-display); text-align: center; font-size: 1rem; color: var(--ink-soft); margin: 1.5em 0; padding: 12px; border-top: 1px dashed var(--rule); border-bottom: 1px dashed var(--rule); }
+
+.example-map { display: grid; gap: 4px; margin: 1.5em 0; }
+.example-map .step { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 16px; border-radius: var(--radius); background: var(--paper-raised); border: 1px solid var(--rule); font-size: 0.95rem; }
+
+.category-block { border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px 22px; margin-bottom: 14px; }
+.category-block h3 { margin-top: 0; display: flex; align-items: center; gap: 10px; }
+.category-block ul { margin: 10px 0 0; padding-left: 1.2em; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .progress-fill { transition: none; } }
+@media (max-width: 480px) { body { font-size: 16px; } h1 { font-size: 1.6rem; } }
