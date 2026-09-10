@@ -234,6 +234,12 @@ strong{ color: var(--ink); }
 .decision-opt[data-v="AI_HELP"] input:checked + label{ background: var(--ai-help); }
 .decision-opt[data-v="CAUTION"] input:checked + label{ background: var(--caution); }
 .decision-opt[data-v="HUMAN"] input:checked + label{ background: var(--human); }
+.decision-opt[data-v="KEEP"] input:checked + label{ background: var(--verify); }
+.decision-opt[data-v="CORRECT"] input:checked + label{ background: var(--caution); }
+.decision-opt[data-v="REJECT"] input:checked + label{ background: var(--human); }
+.decision-opt[data-v="FACT"] input:checked + label{ background: var(--verify); }
+.decision-opt[data-v="ASSUMPTION"] input:checked + label{ background: var(--caution); }
+.decision-opt[data-v="UNSUPPORTED"] input:checked + label{ background: var(--human); }
 
 .feedback{ border-radius: var(--radius-lg); padding: .9rem 1.1rem; margin-top:.8rem; font-size:.94rem; display:none; }
 .feedback.show{ display:block; }

@@ -196,15 +196,36 @@ const AIVA = (() => {
       const correct = wrap.getAttribute("data-correct");
       const radios = wrap.querySelectorAll('input[type="radio"]');
       const feedback = wrap.querySelector(".feedback");
+      const key = wrap.getAttribute("data-key");
+
+      function showFeedback(value) {
+        if (!feedback) return;
+        const isRight = value === correct;
+        feedback.classList.remove("correct", "neutral");
+        feedback.classList.add(isRight ? "correct" : "neutral");
+        feedback.classList.add("show");
+      }
+
+      // Restore a previously selected answer (this is part of the learner's
+      // saved activity, same as any autosaved field) and show its feedback.
+      if (key) {
+        const savedValue = getField(key + ":selected", "");
+        if (savedValue) {
+          const savedRadio = wrap.querySelector(`input[type="radio"][value="${savedValue}"]`);
+          if (savedRadio) {
+            savedRadio.checked = true;
+            showFeedback(savedValue);
+          }
+        }
+      }
+
       radios.forEach((r) => {
         r.addEventListener("change", () => {
-          if (!feedback) return;
-          const isRight = r.value === correct;
-          feedback.classList.remove("correct", "neutral");
-          feedback.classList.add(isRight ? "correct" : "neutral");
-          feedback.classList.add("show");
-          const key = wrap.getAttribute("data-key");
-          if (key) markComplete(key, true);
+          showFeedback(r.value);
+          if (key) {
+            saveField(key + ":selected", r.value);
+            markComplete(key, true);
+          }
         });
       });
     });
