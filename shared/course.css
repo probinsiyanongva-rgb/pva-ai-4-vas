@@ -240,6 +240,23 @@ strong{ color: var(--ink); }
 .decision-opt[data-v="FACT"] input:checked + label{ background: var(--verify); }
 .decision-opt[data-v="ASSUMPTION"] input:checked + label{ background: var(--caution); }
 .decision-opt[data-v="UNSUPPORTED"] input:checked + label{ background: var(--human); }
+.decision-opt[data-v="A"] input:checked + label{ background: var(--ink-soft); }
+.decision-opt[data-v="B"] input:checked + label{ background: var(--ledger); }
+.decision-opt[data-v="PLANNING"] input:checked + label{ background: var(--ai-help); }
+.decision-opt[data-v="INFORMATION"] input:checked + label{ background: var(--caution); }
+.decision-opt[data-v="VERIFICATION"] input:checked + label{ background: var(--verify); }
+.decision-opt[data-v="FINDING"] input:checked + label{ background: var(--ai-help); }
+.decision-opt[data-v="IMPLICATION"] input:checked + label{ background: var(--caution); }
+.decision-opt[data-v="RECOMMENDATION"] input:checked + label{ background: var(--human); }
+.decision-opt[data-v="OBSERVATION"] input:checked + label{ background: var(--verify); }
+.decision-opt[data-v="CONCLUSION"] input:checked + label{ background: var(--human); }
+.decision-opt[data-v="POOR"] input:checked + label{ background: var(--human); }
+.decision-opt[data-v="BETTER"] input:checked + label{ background: var(--verify); }
+.decision-opt[data-v="PERMANENT"] input:checked + label{ background: var(--caution); }
+.decision-opt[data-v="CURRENT"] input:checked + label{ background: var(--verify); }
+.decision-opt[data-v="PLAN"] input:checked + label{ background: var(--ai-help); }
+.decision-opt[data-v="INFO"] input:checked + label{ background: var(--caution); }
+.decision-opt[data-v="VERIFY"] input:checked + label{ background: var(--verify); }
 
 .feedback{ border-radius: var(--radius-lg); padding: .9rem 1.1rem; margin-top:.8rem; font-size:.94rem; display:none; }
 .feedback.show{ display:block; }
@@ -273,6 +290,9 @@ hr.divider{ border:none; border-top:1px solid var(--line); margin: 2.4rem 0; }
 table{ border-collapse: collapse; width:100%; margin: 1.2rem 0 1.6rem; font-size:.94rem; }
 th, td{ text-align:left; padding: .55em .7em; border:1px solid var(--line); vertical-align:top; }
 th{ background: var(--paper-dim); font-family: var(--font-head); font-weight:600; }
+
+code, .code-block{ font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size:.9em; }
+.code-block{ display:block; background: var(--ink); color:#EFE9DB; padding: .8em 1em; border-radius: var(--radius); margin: .8em 0; overflow-x:auto; white-space:pre; }
 
 /* ---------- Buttons ---------- */
 .btn{
